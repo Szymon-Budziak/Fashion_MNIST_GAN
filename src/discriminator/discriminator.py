@@ -9,7 +9,7 @@ def build_discriminator():
     discriminator = Sequential()
 
     # Convolutional layer
-    discriminator.add(Conv2D(filters=32, kernel_size=3, stride=2, input_shape=(28, 28, 1), padding="same"))  # -> 14x14
+    discriminator.add(Conv2D(filters=32, kernel_size=3, strides=2, input_shape=(28, 28, 1), padding="same"))  # -> 14x14
 
     # LeakyRELU activation function
     discriminator.add(LeakyReLU(alpha=0.2))
@@ -18,7 +18,7 @@ def build_discriminator():
     discriminator.add(Dropout(rate=0.25))
 
     # Second convolutional layer with Zero padding to change dimension from 7x7 to 8x8
-    discriminator.add(Conv2D(filters=64, kernel_size=3, stride=2, padding="same"))  # -> 7x7
+    discriminator.add(Conv2D(filters=64, kernel_size=3, strides=2, padding="same"))  # -> 7x7
     discriminator.add(ZeroPadding2D(padding=((0, 1), (0, 1))))  # -> 8x8
 
     # Batch normalization for faster learning and higher accuracy

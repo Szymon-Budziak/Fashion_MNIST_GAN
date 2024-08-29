@@ -46,4 +46,4 @@ def build_generator() -> Model:
     fake_image = generator(noise)
 
     # Return a model that takes as input the noise and outputs the fake image
-    return Model(inputs=noise, output=fake_image)
+    return Model(inputs=noise, outputs=fake_image)
